@@ -1,58 +1,57 @@
-const createError = require('http-errors');
-const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const createError = require('http-errors');
 const logger = require('morgan');
+const path = require('path');
 
-// Import routers
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-const aboutRouter = require('./routes/about');
-const apiRouter = require('./routes/api');
+const dbConfig = require('./config/db');
+const caloriesRoutes = require('./routes/calories');
+const reportRoutes = require('./routes/report');
+const usersRoutes = require('./routes/users');
+const aboutRoutes = require('./routes/about');
 
 const app = express();
 
-//Connect to mongodb
-mongoose.connect("mongodb://127.0.0.1:27017/caloriesdb")
-    .then(() => {
-      console.log("Connected To DB Successfully....")
-    })
-    .catch((err) => {
-      console.log(err)
-    })
+// Middleware
+app.use(logger('dev')); // For logging HTTP requests
+app.use(bodyParser.json()); // For parsing JSON payloads
+app.use(express.json()); // For parsing application/json
+app.use(express.urlencoded({ extended: false })); // For parsing URL-encoded data
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// Static file serving (if needed)
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Use routers
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/about', aboutRouter);
-app.use('/api', apiRouter);
+// Database connection
+mongoose.connect(dbConfig.url, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
 
-// catch 404 and forward to error handler
+// Routes
+app.use('/addcalories', caloriesRoutes);
+app.use('/report', reportRoutes);
+app.use('/users', usersRoutes);
+app.use('/about', aboutRoutes);
+
+// Catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+    next(createError(404));
 });
 
-// error handler
+// Error handler
 app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // Set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // Render the error page
+    res.status(err.status || 500);
+    res.json({ error: err.message });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
 
 module.exports = app;
