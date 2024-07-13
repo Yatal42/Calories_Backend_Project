@@ -10,8 +10,8 @@ exports.getAbout = (req, res) => {
         {
             firstname: 'Gil',
             lastname: 'Levkovitch',
-            id: 654321,
-            email: 'gil.lev@joindaisy.com'
+            id: 312496821,
+            email: 'gilllev1994@gmail.com'
         }
     ]);
 };

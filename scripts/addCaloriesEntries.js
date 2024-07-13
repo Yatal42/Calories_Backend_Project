@@ -4,7 +4,7 @@ const dbConfig = require('../config/db');
 const { v4: uuidv4 } = require('uuid');  // Import UUID
 
 // Connect to MongoDB
-mongoose.connect(dbConfig.url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbConfig.url)
     .then(async () => {
         const calorieEntries = [
             {
@@ -31,6 +31,6 @@ mongoose.connect(dbConfig.url, { useNewUrlParser: true, useUnifiedTopology: true
 
         await Calorie.insertMany(calorieEntries);  // Insert the calorie entries into the database
         console.log('Calorie entries added');
-        mongoose.connection.close();  // Close the connection
+        await mongoose.connection.close();  // Close the connection
     })
     .catch(err => console.log(err));
