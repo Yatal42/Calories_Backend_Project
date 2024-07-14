@@ -39,7 +39,7 @@ exports.getReport = async (req, res) => {
         }
 
         // Respond with the report
-        res.send(report);
+        res.json(report);
     } catch (err) {
         // Handle any errors
         res.status(500).send({ error: err.message });
