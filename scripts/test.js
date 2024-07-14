@@ -1,6 +1,13 @@
+/*
+  Students:
+
+  - 315788653 -  Tal Yaakobi
+  - 312496821 -  Gil Levkovitch
+*/
+
 const axios = require('axios');
 
-const baseUrl = "http://ec2-16-16-205-202.eu-north-1.compute.amazonaws.com:3000";
+const baseUrl = "https://calories-backend-project.onrender.com";
 
 const test = async () => {
     try {
