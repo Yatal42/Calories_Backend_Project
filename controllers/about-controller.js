@@ -1,3 +1,10 @@
+/*
+  Students:
+
+  - 315788653 -  Tal Yaakobi
+  - 312496821 -  Gil Levkovitch
+*/
+
 // Controller to get details about the developers
 exports.getAbout = (req, res) => {
     res.send([

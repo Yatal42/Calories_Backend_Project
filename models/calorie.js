@@ -1,3 +1,11 @@
+/*
+  Students:
+
+  - 315788653 -  Tal Yaakobi
+  - 312496821 -  Gil Levkovitch
+*/
+
+// Imports
 const mongoose = require('mongoose');
 
 // Define the schema for a Calorie record
