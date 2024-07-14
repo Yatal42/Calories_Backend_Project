@@ -7,7 +7,7 @@
 
 // Controller to get details about the developers
 exports.getAbout = (req, res) => {
-    res.send([
+    res.json([
         {
             firstname: 'Tal',
             lastname: 'Yaakobi',

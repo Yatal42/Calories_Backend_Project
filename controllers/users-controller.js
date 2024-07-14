@@ -19,7 +19,7 @@ exports.getUser = async (req, res) => {
         }
 
         // Respond with the user details
-        res.send(user);
+        res.json(user);
     } catch (err) {
         // Handle any errors
         res.status(500).send({ error: err.message });
