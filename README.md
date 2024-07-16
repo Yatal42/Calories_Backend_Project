@@ -41,6 +41,7 @@ The server-side application is built using Node.js, Express.js, and MongoDB (usi
 5.	**Run the server**:
     - npm start
 6. **Run the test script (optional)**:
+    - change the base url at test.js to your localhost. 
     - node scripts/test.js
 
 ## API Endpoints
