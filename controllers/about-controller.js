@@ -9,7 +9,7 @@
 exports.getAbout = (req, res) => {
     res.json([
         {
-            firstname: 'Tal',
+            firstname: 'Tal1',
             lastname: 'Yaakobi',
             id: 315788653,
             email: 'taltal2345@gmail.com'
