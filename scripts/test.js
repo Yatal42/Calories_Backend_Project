@@ -1,10 +1,3 @@
-/*
-  Students:
-
-  - 315788653 -  Tal Yaakobi
-  - 312496821 -  Gil Levkovitch
-*/
-
 const axios = require('axios');
 
 const baseUrl = "https://calories-backend-project.onrender.com";
