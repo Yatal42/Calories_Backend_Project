@@ -9,6 +9,30 @@ The server-side application is built using Node.js, Express.js, and MongoDB (usi
 - Tal Yaakobi @Yatal42
 - Gil Levkovitch @GilLev94
 
+## Example Usage
+You can use the deployed API at the following base URL: https://calories-backend-project.onrender.com
+
+### Add calorie entry
+POST https://calories-backend-project.onrender.com/addcalories/
+
+Body: {
+  "user_id": 123,
+  "year": 2024,
+  "month": 7,
+  "day": 15,
+  "description": "Pizza",
+  "category": "dinner",
+  "amount": 500
+}
+### Get User Details:
+GET https://calories-backend-project.onrender.com/users/123
+
+### Get Calorie Report:
+GET https://calories-backend-project.onrender.com/report/?user_id=123&year=2024&month=7
+
+### Get Developers Information:
+GET https://calories-backend-project.onrender.com/about/
+
 ## Installation and Setup
 
 ### Instructions for Use
@@ -69,26 +93,3 @@ The server-side application is built using Node.js, Express.js, and MongoDB (usi
 	•	Method: GET
 	•	Description: Retrieves information about the developers.
   	
-## Example Usage
-You can use the deployed API at the following base URL: https://calories-backend-project.onrender.com
-
-### Add calorie entry
-POST https://calories-backend-project.onrender.com/addcalories/
-
-Body: {
-  "user_id": 123,
-  "year": 2024,
-  "month": 7,
-  "day": 15,
-  "description": "Pizza",
-  "category": "dinner",
-  "amount": 500
-}
-### Get User Details:
-GET https://calories-backend-project.onrender.com/users/123
-
-### Get Calorie Report:
-GET https://calories-backend-project.onrender.com/report/?user_id=123&year=2024&month=7
-
-### Get Developers Information:
-GET https://calories-backend-project.onrender.com/about/

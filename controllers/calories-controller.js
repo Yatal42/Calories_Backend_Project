@@ -2,7 +2,6 @@ const Calorie = require('../models/calorie');
 const { v4: uuidv4 } = require('uuid');
 const User = require('../models/user');
 
-// Controller to add a new calorie entry
 exports.addCalorie = async (req, res) => {
     try {
         const { user_id, year, month, day, description, category, amount } = req.body;
