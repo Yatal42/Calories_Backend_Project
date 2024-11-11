@@ -1,4 +1,3 @@
-
 exports.getAbout = (req, res) => {
     res.json([
         {
