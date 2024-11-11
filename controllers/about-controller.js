@@ -4,13 +4,11 @@ exports.getAbout = (req, res) => {
         {
             firstname: 'Tal',
             lastname: 'Yaakobi',
-            id: 315788653,
             email: 'taltal2345@gmail.com'
         },
         {
             firstname: 'Gil',
             lastname: 'Levkovitch',
-            id: 312496821,
             email: 'gilllev1994@gmail.com'
         }
     ]);
