@@ -10,8 +10,6 @@ The server-side application is built using Node.js, Express.js, and MongoDB (usi
 - Gil Levkovitch @GilLev94
 
 ## Example Usage
-You can use the deployed API at the following base URL: https://calories-backend-project.onrender.com
-
 ### Add calorie entry
 POST https://calories-backend-project.onrender.com/addcalories/
 
